@@ -5,7 +5,7 @@ const getCV = (req, res) => {
   educations = fs.readFileSync("data/education", { encoding: "utf-8" });
   languages = fs.readFileSync("data/language",{ encoding: "utf-8"});
   skills = fs.readFileSync("data/skill",{ encoding: "utf-8"});
-  experiences = fs.readFileSync("data/skill", { encoding: "utf-8"});
+  experiences = fs.readFileSync("data/experience", { encoding: "utf-8"});
   
   educations = JSON.parse(String(educations));
   languages = JSON.parse(String(languages));
