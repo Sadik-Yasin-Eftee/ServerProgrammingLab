@@ -1,0 +1,14 @@
+{
+  "1": {
+    "name": "Adobe Photoshop",
+    "width": "100%"
+  },
+  "2": {
+    "name": "Photography",
+    "width": "55%"
+  },
+  "3": {
+    "name": "Illustrator",
+    "width": "25%"
+  }
+}
