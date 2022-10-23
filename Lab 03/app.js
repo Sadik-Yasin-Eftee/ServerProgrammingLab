@@ -1,28 +1,37 @@
-require ("dotenv").config()
-const express = require("express")
-const bodyParser = require("body-parser")
-const router = require("routes")
-const mongoose = require("mongoose")
+const express = require('express');
+const bodyParser = require('body-parser');
+const dotenv = require("dotenv");
+const mongoose = require("mongoose");
+const path = require("path");
+const router = require("./routers/routes");
 
-database_url = "mongodb+srv://sadik:sadik@cluster0.fepxejp.mongodb.net/test" || process.env.DATABASE_URL
 
-mongoose.connect(database_url).then(()=>{
-    console.log("Database Connected!")
-}).catch((error)=>{
-    console.log(error)
-})
+const app = express();
 
-const app = express()
-const port = 3000
 
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(express.json)
+dotenv.config();
+SEVER_PORT = process.env.SEVER_PORT;
 
-app.use(router)
+app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-app.set("view engine" , "ejs")
-app.set("views", __dirname, + "views")
+mongoose
+  .connect(process.env.MONGODB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Database Connected Successfully!!!"))
+  .catch((err) => console.log(err));
 
-app.listen(port,() =>{
-    console.log("Runnig on port ${port}")
-});
+ 
+
+  app.use(router)
+
+
+
+
+  app.listen(SEVER_PORT, () => {
+    console.log(`SERVER PORT RUNNING AT ${SEVER_PORT}`);
+  });
