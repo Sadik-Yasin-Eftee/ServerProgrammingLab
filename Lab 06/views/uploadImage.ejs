@@ -1,0 +1,27 @@
+<%- include('./common/header.ejs'); %>
+
+<body>
+  <h1 style="text-align: center">Image Uploader</h1>
+
+  <div class="container">
+    <form
+      action="/uploadProfilePicture"
+      enctype="multipart/form-data"
+      method="POST"
+    >
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Upload Image : </label>
+        <input
+          class="form-control"
+          id="formFile"
+          type="file"
+          name="mypic"
+          required
+        />
+        <button type="submit" class="btn btn-warning" style="margin-top: 10px">
+          Upload &nbsp; <img src="images/send.png" height="25px" width="25px" />
+        </button>
+      </div>
+    </form>
+  </div>
+</body>
